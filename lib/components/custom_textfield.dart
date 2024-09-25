@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:titanic_app/theme/design_system.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({super.key, required this.myLabel});
@@ -27,7 +28,7 @@ class CustomTextField extends StatelessWidget {
           ),
           label: Text(
             myLabel,
-            style: const TextStyle(color: Colors.black),
+            style: TitanicAppFonts.formTextStyle,
           ),
         ),
       ),
