@@ -25,6 +25,10 @@ class CustomDropdownField extends StatelessWidget {
         dropdownMenuEntries: entries,
         width: contextWidth * (283 / 360),
         menuHeight: contextHeight * (264 / 800),
+        menuStyle: const MenuStyle(
+          backgroundColor: WidgetStatePropertyAll(Colors.white),
+          elevation: WidgetStatePropertyAll(1),
+        ),
         inputDecorationTheme: InputDecorationTheme(
           border: InputBorder.none,
           floatingLabelBehavior: FloatingLabelBehavior.never,
