@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:titanic_app/components/custom_button.dart';
+import 'package:titanic_app/components/custom_dropdown.dart';
 import 'package:titanic_app/components/custom_textfield.dart';
+import 'package:titanic_app/theme/design_system.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,8 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color(0xFFF5FFEF),
       appBar: AppBar(
         backgroundColor: const Color(0xFFCEFBB3),
-        title: const Center(
-          child: Text("Prever Sobrevivência no Titanic"),
+        title: Center(
+          child: Text(
+            "Prever Sobrevivência no Titanic",
+            style: TitanicAppFonts.appBarTextStyle,
+          ),
         ),
       ),
       body: Column(
@@ -44,43 +50,76 @@ class _HomeScreenState extends State<HomeScreen> {
             decoration: const BoxDecoration(
                 color: Color(0xFFDDFFC9),
                 borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                // CustomTextField(myLabel: 'myLabel'),
-                const CustomTextField(myLabel: 'Classe do Passageiro'),
-                ListTile(
-                  title: Text("Masculino"),
-                  leading: Radio(
-                    activeColor: Color(0xFF5A754A),
-                    value: options[0],
-                    groupValue: currentOption,
-                    onChanged: (value) {
-                      setState(() {
-                        currentOption = value.toString();
-                      });
-                    },
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                contextWidth * (25.5 / 360),
+                contextHeight * (19.5 / 800),
+                contextWidth * (25.5 / 360),
+                contextHeight * (19.5 / 800),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // CustomTextField(myLabel: 'myLabel'),
+                  const CustomDropdownField(
+                    label: "Classe de Embarque",
+                    entries: [
+                      DropdownMenuEntry(value: 1, label: 'label'),
+                      DropdownMenuEntry(value: 2, label: 'label'),
+                      DropdownMenuEntry(value: 3, label: 'label'),
+                    ],
                   ),
-                ),
-                ListTile(
-                  title: Text("Feminino"),
-                  leading: Radio(
-                    activeColor: Color(0xFF5A754A),
-                    value: options[1],
-                    groupValue: currentOption,
-                    onChanged: (value) {
-                      setState(() {
-                        currentOption = value.toString();
-                      });
-                    },
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    minTileHeight: contextHeight * (20 / 800),
+                    title: Text(
+                      "Masculino",
+                      style: TitanicAppFonts.formTextStyle,
+                    ),
+                    leading: Radio(
+                      activeColor: const Color(0xFF5A754A),
+                      value: options[0],
+                      groupValue: currentOption,
+                      onChanged: (value) {
+                        setState(() {
+                          currentOption = value.toString();
+                        });
+                      },
+                    ),
                   ),
-                ),
-                CustomTextField(myLabel: 'Idade'),
-                CustomTextField(myLabel: 'Número de Irmãos/Cônjuges'),
-                CustomTextField(myLabel: 'Número de Pais/Filhos'),
-                CustomTextField(myLabel: 'Tarifa Paga'),
-                CustomTextField(myLabel: 'Porto de Embarque'),
-              ],
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    minTileHeight: contextHeight * (20 / 800),
+                    title: Text(
+                      "Feminino",
+                      style: TitanicAppFonts.formTextStyle,
+                    ),
+                    leading: Radio(
+                      activeColor: const Color(0xFF5A754A),
+                      value: options[1],
+                      groupValue: currentOption,
+                      onChanged: (value) {
+                        setState(() {
+                          currentOption = value.toString();
+                        });
+                      },
+                    ),
+                  ),
+                  const CustomTextField(myLabel: 'Idade'),
+                  const CustomTextField(myLabel: 'Número de Irmãos/Cônjuges'),
+                  const CustomTextField(myLabel: 'Número de Pais/Filhos'),
+                  const CustomTextField(myLabel: 'Tarifa Paga'),
+                  const CustomDropdownField(
+                    label: "Porto de Embarque",
+                    entries: [
+                      DropdownMenuEntry(value: 1, label: 'label'),
+                      DropdownMenuEntry(value: 2, label: 'label'),
+                      DropdownMenuEntry(value: 3, label: 'label'),
+                    ],
+                  ),
+                  const CustomButton(),
+                ],
+              ),
             ),
           )
         ],
