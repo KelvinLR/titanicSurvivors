@@ -64,9 +64,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   const CustomDropdownField(
                     label: "Classe de Embarque",
                     entries: [
-                      DropdownMenuEntry(value: 1, label: 'label'),
-                      DropdownMenuEntry(value: 2, label: 'label'),
-                      DropdownMenuEntry(value: 3, label: 'label'),
+                      DropdownMenuEntry(value: 1, label: '1ª Classe'),
+                      DropdownMenuEntry(value: 2, label: '2ª Classe'),
+                      DropdownMenuEntry(value: 3, label: '3ª Classe'),
                     ],
                   ),
                   ListTile(
@@ -112,9 +112,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   const CustomDropdownField(
                     label: "Porto de Embarque",
                     entries: [
-                      DropdownMenuEntry(value: 1, label: 'label'),
-                      DropdownMenuEntry(value: 2, label: 'label'),
-                      DropdownMenuEntry(value: 3, label: 'label'),
+                      DropdownMenuEntry(value: "S", label: 'Southampton'),
+                      DropdownMenuEntry(value: "C", label: 'Cherbourg'),
+                      DropdownMenuEntry(value: "Q", label: 'Queenstown'),
                     ],
                   ),
                   const CustomButton(),
