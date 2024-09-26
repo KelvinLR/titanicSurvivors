@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:titanic_app/theme/design_system.dart';
 
 class CustomDropdownField extends StatelessWidget {
-  const CustomDropdownField(
-      {super.key, required this.label, required this.entries});
+  const CustomDropdownField({
+    super.key,
+    required this.label,
+    required this.entries,
+    required this.controller,
+  });
 
   final String label;
   final List<DropdownMenuEntry> entries;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,7 @@ class CustomDropdownField extends StatelessWidget {
           color: Color(0xFFFFFFFF),
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: DropdownMenu(
+        controller: controller,
         label: Text(
           label,
           style: TitanicAppFonts.formTextStyle,
